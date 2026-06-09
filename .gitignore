@@ -5,3 +5,5 @@ analytics/
 *.duckdb.wal
 *.gz
 *.parquet
+__pycache__/
+*.pyc
