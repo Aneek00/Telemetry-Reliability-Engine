@@ -1,4 +1,8 @@
 # Wikimedia Traffic Reliability & Demand Dynamics Engine
+[![Live Interactive Dashboard](https://img.shields.io/badge/Live_Dashboard-View_Here-FF4B4B?style=for-the-badge&logo=plotly)]( https://aneek00.github.io/Telemetry-Reliability-Engine/)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)
+![Data Size](https://img.shields.io/badge/Dataset-41GB_Raw-lightgrey?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge)
 
 ## Project Overview
 
