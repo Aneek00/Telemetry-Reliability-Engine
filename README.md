@@ -16,46 +16,35 @@ Processing highly granular compressed log files on commodity hardware (16GB RAM)
 
 ```mermaid
 flowchart TD
-
     subgraph ORCH["Orchestration"]
-        O["main.py"]
+        O("main.py")
     end
 
-    subgraph DATA["Data Engineering Pipeline<br/>src/data"]
-        A["742 Raw .gz Logs"]
-        B["DuckDB OLAP Engine"]
-        C{"Canonical Aggregation"}
-        D["Hourly Project Views"]
-        E["Monthly Global Metrics"]
-
-        A -->|ingest.py| B
-        B -->|aggregate.py| C
-        C --> D
-        C --> E
+    subgraph DATA["Data Engineering Pipeline (src/data/)"]
+        A[("742 Raw .gz Logs")] -->|ingest.py| B("DuckDB OLAP Engine")
+        B -->|aggregate.py| C{"Canonical Aggregation"}
+        C --> D["Hourly Project Views"]
+        C --> E["Monthly Global Metrics"]
     end
 
-    subgraph ANALYSIS["Analytical Engine<br/>src/analysis"]
-        F["Parquet Artifacts"]
-        G["Volatility & Noise Engine"]
-        H["3-Sigma Anomaly Backtester"]
-
-        D --> F
+    subgraph ANALYSIS["Analytical Engine (src/analysis/)"]
+        D --> F[("Parquet Artifacts")]
         E --> F
-        F -->|metrics.py| G
-        G -->|simulation.py| H
+        F -->|metrics.py| G["Volatility & Noise Engine"]
+        G -->|simulation.py| H["3-Sigma Anomaly Backtester"]
     end
 
-    subgraph VIS["Serverless Frontend<br/>src/visualization"]
-        I["dashboard.py"]
-        J["Live GitHub Pages Dashboard"]
-
-        G --> I
-        I --> J
+    subgraph VIS["Serverless Frontend (src/visualization/)"]
+        G --> I["dashboard.py"]
+        I --> J(["Live GitHub Pages Dashboard"])
     end
 
     O -.->|Triggers| A
     O -.->|Triggers| G
     O -.->|Triggers| I
+
+    style J fill:#bfb,stroke:#333,stroke-width:2px,color:#000
+    style O fill:#f9f,stroke:#333,stroke-width:2px
 ```
 
 
