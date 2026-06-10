@@ -8,13 +8,12 @@ The primary objective is to quantify system stability, detect structural demand 
 
 Rather than relying on pre-processed datasets, this system ingests, structures, and analyzes **41GB of raw machine-generated server logs (approximately 15 billion monthly views)** to recreate a realistic enterprise telemetry environment.
 
----
+
 
 ## System Architecture & Workflow
 
 Processing highly granular compressed log files on commodity hardware (16GB RAM) requires strict architectural discipline. The system bypasses full-memory loading, utilizing an embedded OLAP strategy via DuckDB, decoupled analytical layers, and concluding with a serverless interactive frontend.
 
-````markdown
 ```mermaid
 flowchart TD
 
@@ -58,10 +57,7 @@ flowchart TD
     O -.->|Triggers| G
     O -.->|Triggers| I
 ```
-````
 
-
----
 
 # 1. Operational Pipeline Design
 
