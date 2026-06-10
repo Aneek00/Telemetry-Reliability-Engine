@@ -44,7 +44,7 @@ flowchart TD
     O -.->|Triggers| I
 
     style J fill:#bfb,stroke:#333,stroke-width:2px,color:#000
-    style O fill:#f9f,stroke:#333,stroke-width:2px
+    style O fill:#2C3E50,stroke:#333,stroke-width:2px,color:#fff
 ```
 
 
